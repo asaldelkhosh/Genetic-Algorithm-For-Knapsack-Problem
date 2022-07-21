@@ -33,3 +33,28 @@ def fitness(self) -> float:
         return total_value
 
     return 0
+
+
+def selection(population: List[Individual]) -> List[Individual]:
+    parents = []
+
+    # randomly shuffle the population
+    random.shuffle(population)
+
+    # we use the first 4 individuals
+    # run a tournament between them and
+    # get two fit parents for the next steps of evolution
+
+    # tournament between first and second
+    if population[0].fitness() > population[1].fitness():
+        parents.append(population[0])
+    else:
+        parents.append(population[1])
+
+    # tournament between third and fourth
+    if population[2].fitness() > population[3].fitness():
+        parents.append(population[2])
+    else:
+        parents.append(population[3])
+
+    return parents
