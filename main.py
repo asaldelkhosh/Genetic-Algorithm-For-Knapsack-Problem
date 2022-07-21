@@ -58,3 +58,12 @@ def selection(population: List[Individual]) -> List[Individual]:
         parents.append(population[3])
 
     return parents
+
+
+def crossover(parents: List[Individual]) -> List[Individual]:
+    N = len(items)
+
+    child1 = parents[0].bits[:N//2] + parents[1].bits[N//2:]
+    child2 = parents[0].bits[N//2:] + parents[1].bits[:N//2]
+
+    return [Individual(child1), Individual(child2)]
