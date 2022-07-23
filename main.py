@@ -67,3 +67,11 @@ def crossover(parents: List[Individual]) -> List[Individual]:
     child2 = parents[0].bits[N//2:] + parents[1].bits[:N//2]
 
     return [Individual(child1), Individual(child2)]
+
+
+def mutate(individuals: List[Individual]) -> List[Individual]:
+    for individual in individuals:
+        for i in range(len(individual.bits)):
+            if random.random() < MUTATION_RATE:
+                # Flip the bit
+                individual.bits[i] = ~individual.bits[i]
