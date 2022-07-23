@@ -75,3 +75,28 @@ def mutate(individuals: List[Individual]) -> List[Individual]:
             if random.random() < MUTATION_RATE:
                 # Flip the bit
                 individual.bits[i] = ~individual.bits[i]
+
+
+def next_generation(population: List[Individual]) -> List[Individual]:
+    next_gen = []
+    while len(next_gen) < len(population):
+        children = []
+
+        # we run selection and get parents
+        parents = selection(population)
+
+        # reproduction
+        if random.random() < REPRODUCTION_RATE:
+            children = parents
+        else:
+            # crossover
+            if random.random() < CROSSOVER_RATE:
+                children = crossover(parents)
+
+            # mutation
+            if random.random() < MUTATION_RATE:
+                mutate(children)
+
+        next_gen.extend(children)
+
+    return next_gen[:len(population)]
