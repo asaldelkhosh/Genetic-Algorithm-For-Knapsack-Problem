@@ -100,3 +100,16 @@ def next_generation(population: List[Individual]) -> List[Individual]:
         next_gen.extend(children)
 
     return next_gen[:len(population)]
+
+
+def solve_knapsack() -> Individual:
+    population = generate_initial_population()
+
+    avg_fitnesses = []
+
+    for _ in range(500):
+        avg_fitnesses.append(average_fitness(population))
+        population = next_generation(population)
+
+    population = sorted(population, key=lambda i: i.fitness(), reverse=True)
+    return population[0]
