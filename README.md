@@ -1,8 +1,4 @@
-<h1 align="center">
-  Genetic Algorithm
-</h1>
-
-<br />
+# Genetic algorithm for solving Knapsack problem
 
 Solving Knapsack Problem with Genetic Algorithm.
 The basic idea behind the Genetic Algorithm is to start with some candidate Individuals (solutions chosen at random) called Population. The initial population is the zeroth population, which is responsible for the spinning of the First Generation. The First Generation is also a set of candidate solutions that evolved from the zeroth generation and is expected to be better.
